@@ -40,5 +40,6 @@ The End of An Auction
   Notifications are sent to bidders with auction on their "My Auctions Page"
   The seller recieves 92% of coin -- 8% fee to cover cost of computing 
 
-
+Name of Site 
+  Displayed in top left: "CommonSea"
  
