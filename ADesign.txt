@@ -1,0 +1,44 @@
+Logged in users can: 
+  Start an auction
+  Browse live auctions  
+  Bid on auctions
+  View their ongoing buyer/seller auctions 
+  
+Non-Logged in users (guests) can:
+  Browse live auctions
+  
+Starting an auction
+  User selects timeframe (1hr - 10 days)
+  User selects starting price
+  User names auction and writes 100 word max description
+  Auction is published to “Auction listing page” 
+
+Browsing Auctions
+ Hot auctions displayed on front page of the website or the “Auction listing page” 
+ Search bar can be used to find specific auctions 
+ Filter can be used to sort hot auctions by price, kind, time until end etc. 
+ Current bidding price, name of auction, and time left displayed on auction
+  Clicking on an auction sends the user to that auctions page
+
+Bidding on Auctions
+  Bidding can be made throught the specific "Auction page" 
+  Each successive bid must follow minimum bidding rules (adapted from Ebay) 
+  One can only bid as much coin as they have (max option available)
+  Bidding increases the time on an auction by 69 seconds and notifies prior bidder via electric mail
+  Bidding history of an auction is available to view before one bids on the "Auction page"
+  Sound effect plays after a bid is made (Theiss saying "I'm gonna make him an offer he can't refuse")
+  One's first bid on an auction adds it to their "My Auction's Page"
+
+View their ongoing buyer/seller auctions
+  "My Auction's Page" displays auctions one has started or placed a bid on
+  One can navigate to those specific "Auction pages" to place bids by clicking
+  Auctions can also be added to the "My Auctions Page" from an "Auction page" by clicking the "interested" button
+  Past auctions can also be viewed by scrolling down (live auctions shown first)
+
+The End of An Auction
+  At an auction's close, the leading bidder is awarded the object
+  Notifications are sent to bidders with auction on their "My Auctions Page"
+  The seller recieves 92% of coin -- 8% fee to cover cost of computing 
+
+
+ 
