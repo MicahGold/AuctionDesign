@@ -1,0 +1,60 @@
+
+Auction Class
+Date auctionEnd
+* The end time and date of the auction
+String auctioneer
+* ID of the auctioneer, the creator of the auction (the seller)
+Hashmap bidHistory(bid,usernameOf)
+String description
+* Description of item being auctioned (100 word max)
+String[] keywords
+* Stores all keywords of the auction
+double currentBiddingPrice
+void updateBiddingPrice(double price)
+	check if price is greater than currentBiddingPrice
+		if it is, currentBiddingPrice = price
+		auctionEnd = auctionEnd + 69 seconds
+		add bid information to bidHistory
+void endAuction()
+	send reminder to auctioneer for him to send item to buyer
+	send auctioneer 92% of coin
+boolean isHot()
+	return if auction is hot or not based on criteria
+getter methods
+
+AuctionRunner Class
+      Auction[] ongoingAuctions
+* Stores all of a particular user’s ongoing auctions
+void startAuction(information from HTML form)
+	create auction with the respective information from the HTML form
+add auction information to specific user’s “My Auction’s Page” and display with HTML 
+void checkAuctions()
+	loops through to see if any auction in ongoingAuctions is done
+		run endAuction() on that auction
+		remove auction from ongoingAuctions
+	
+HTML create auction form
+	Username: 
+	Description (100 word max): 
+	Timeframe (1hr – 10 days): 
+
+
+HTML bid on auction form
+	Above form, display past bids from information stored in bidHistory hashmap
+	Username: 
+	Place bid (has to be less than or equal to coin owned and greater than current bid): 
+		Max Coin button
+		Use PHP to notify prior bidder via electronic mail
+	Play sound effect: Theiss saying “I’m gonna make him an offer he can’t refuse”
+
+Viewing auction
+	HTML displays auction information after it has been created
+	Auction bid form displayed below auction information
+	“Interested” button located at the top of an auction page
+	HTML <title> tag used to name site “CommonSea”
+		Logo favicon of Mr. Commons
+	
+	
+
+	
+	
