@@ -1,0 +1,62 @@
+{
+	"compiler": {
+		"version": "0.8.9+commit.e5eed63a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "checkAucTime",
+				"outputs": [],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "updateBiddingPrice",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Store & retrieve value in a variable",
+			"kind": "dev",
+			"methods": {},
+			"title": "Storage",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Auction.sol": "Auction"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Auction.sol": {
+			"keccak256": "0x6c4aa1110e61640abcde42c80832c53b1ae1700bd039cbe1e2fa5f09cdd4b30a",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://ba6bfc4d521944b1b4d467c34587b26aaf4765d41ff72b788a61fb65969c6be7",
+				"dweb:/ipfs/QmcLKLop5WrT4fGDyNfXRiVEmY5wFYmHvpcY1r7KLjEE7o"
+			]
+		}
+	},
+	"version": 1
+}
