@@ -2,10 +2,6 @@
 
 pragma solidity >=0.8.9;
 
-/**
- * @title Storage
- * @dev Store & retrieve value in a variable
- */
 contract Auction{
     function checkAucTime() public view{
         
