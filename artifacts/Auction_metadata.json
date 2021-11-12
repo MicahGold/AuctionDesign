@@ -6,9 +6,81 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_nftaddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_nftId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_desc",
+						"type": "string"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "auctionEnd",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "addr",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "price",
+								"type": "uint256"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct Auction.Bid[]",
+						"name": "history",
+						"type": "tuple[]"
+					}
+				],
+				"name": "bidUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "latest",
+				"type": "event"
 			},
 			{
 				"inputs": [],
@@ -25,9 +97,81 @@
 			},
 			{
 				"inputs": [],
+				"name": "countWords",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "endAuction",
 				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "forceEndAuction",
+				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "latestBid",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "nft",
+				"outputs": [
+					{
+						"internalType": "contract IERC721",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "nftId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "timeLeft",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -88,11 +232,11 @@
 			]
 		},
 		"Auction.sol": {
-			"keccak256": "0xd0a0fe34e17560cff780f3684088082d12542b125bea944e603a3b5a81d9d6a8",
+			"keccak256": "0xb07f4e7559ab6241a7f531195899410468ab9402c11accb16c141798af4b64b7",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://5115a19f30594972f48412d58ff4721aaf2557c24d38e35397219c64d749f460",
-				"dweb:/ipfs/QmNX5L9Ei5QHM25W65ks9NU9AHAspZUvBKTLHevTS2J6E5"
+				"bzz-raw://5b9d7c56b7c6f3ad86e8ba48c9b80997806d1a0fb695cfb9cad9bf2d4332484b",
+				"dweb:/ipfs/QmckWrh489Pp51eKqQcBVGgxyrH5tnfDFwkpB61A2SbU6S"
 			]
 		}
 	},
