@@ -65,14 +65,14 @@ contract Auction{
         bidHistory.push(Bid(msg.sender,msg.value));
         emit bidUpdated(currentprice, currentprice, bidHistory);
     }
-    function endAuction() payable public onlyOwner{
+    function endAuction() payable public{
         require(aucEnding(),"auction hasn't ended");
         if(!forced){
-        nft.safeTransferFrom(owner, bidHistory[bidHistory.length-1].addr,tokenid);
-        owner.transfer(bidHistory[bidHistory.length-1].price); 
+            nft.safeTransferFrom(owner, bidHistory[bidHistory.length-1].addr,tokenid);
+            owner.transfer(bidHistory[bidHistory.length-1].price); 
         }
         else{
-            
+            //what do i even do here lol
         }
     }
     function latestBid() public returns(string memory){
