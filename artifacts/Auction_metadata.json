@@ -96,7 +96,13 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "contract Sender",
+						"name": "sendy",
+						"type": "address"
+					}
+				],
 				"name": "endAuction",
 				"outputs": [],
 				"stateMutability": "payable",
@@ -163,6 +169,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "ownerBoi",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "timeLeft",
 				"outputs": [
 					{
@@ -177,14 +196,14 @@
 			{
 				"inputs": [
 					{
-						"internalType": "contract Sender",
-						"name": "sender",
-						"type": "address"
+						"internalType": "uint256",
+						"name": "bid",
+						"type": "uint256"
 					}
 				],
 				"name": "updateBiddingPrice",
 				"outputs": [],
-				"stateMutability": "payable",
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -232,19 +251,19 @@
 			]
 		},
 		"Auction.sol": {
-			"keccak256": "0x4c940b41c72e592d26ddfe9d4b60091a3002f813f643055fc3cabcb704b0e0ea",
+			"keccak256": "0x5d1c5c28b7f2202af2968199d7722893d293e57ca0452236b2fd3e4d19e5cfe6",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://abf03b1e0fb9ec45b005499265fb7e61c720904fd2e5681c868722260eddf6db",
-				"dweb:/ipfs/QmaFCHrFiad8fuer6gc4ujfR82G4jmir3uJxA5r5jXvUZj"
+				"bzz-raw://5b62b616e1771c6b46a6d88ac5bc9e19d2bc3fda474006d82e87f7dc4cfdb46d",
+				"dweb:/ipfs/QmcZg9nV57hJnj2GRaQFMigpv3GfBVYChQLQ1B4bz2LsyR"
 			]
 		},
 		"Sender.sol": {
-			"keccak256": "0x13ee635eecb87300dc8f276b95591d5a450b0adbde823b07ba87c392bf6535f8",
+			"keccak256": "0x9a569c99368540f52a39474a96a20e2963ea6d62850958723a92ceb0ab71698e",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://da27c31011bcda8b5a10f237fca5cebd4b7e0284e249949d46d4c6ed06bf79f7",
-				"dweb:/ipfs/QmWgjXifDydKARbLZG9iYz6FHZBwTZx5e9qDF8gdYG4jg3"
+				"bzz-raw://32f63b39d98e5a1cd0be7aff5780e983057f02be785d35881d9d77f97a300aaa",
+				"dweb:/ipfs/QmV8fWZjSzFCBA642YZxCq9GkZbZ7Sx1hxTRxcHEHZ65n7"
 			]
 		}
 	},

@@ -7,7 +7,7 @@ import "Sender.sol";
 contract Auction{
     
     address payable owner;
-    address payable holder =payable( address(0xdD870fA1b7C4700F2BD7f44238821C26f7392148));
+ 
     uint256 currentprice;
     string description;
     uint startblock;
@@ -16,8 +16,11 @@ contract Auction{
     bool forced;
     IERC721 public nft;
     uint public nftId;
-
-    Sender[] bidHistory;
+    struct Bid {
+        address payable addr;
+        uint256 price;
+    }
+    Bid[] bidHistory;
     event bidUpdated(uint256 price, uint auctionEnd,Sender[] history);
     constructor(address _nftaddress, uint _nftId, uint256 startingprice, string memory _desc) descCheck(_desc) {
         nft = IERC721(_nftaddress);
@@ -55,36 +58,39 @@ contract Auction{
         //forced= true;
     }
     event latest(uint256 price);
-    function updateBiddingPrice(Sender sender) public payable higherBid(sender.getAmount()) zeroBid(sender.getAmount()){
+    function updateBiddingPrice(uint256 bid) public higherBid(bid) zeroBid(bid){
         require(!aucEnding(),"auction is already over");
+        require(msg.sender.balance > bid,"u broke");
         auctionEnd += 0;
-        currentprice = sender.getAmount();
-        bidHistory.push(sender);
-        emit bidUpdated(currentprice, currentprice, bidHistory);
+        currentprice = bid;
+        bidHistory.push(Bid(payable(msg.sender),bid));
     }
-    function endAuction() payable public onlyHolder(){ 
+    //prompt highest bidder to send money to the person if it wasnt force ended
+    function endAuction(Sender sendy) payable public onlyHighestBuilder() sameasHighest(sendy.amount()) { 
         require(aucEnding(),"auction hasn't ended");
         if(!forced){
-            nft.safeTransferFrom(owner, bidHistory[bidHistory.length-1].getAddress(),tokenid);
-            owner.transfer(currentprice); 
+            nft.safeTransferFrom(owner, msg.sender,tokenid);
+            sendy.execute();
         }
-        else{
-            for(uint256 a=0;a<bidHistory.length;a++){
-                bidHistory[a].getAddress().transfer((bidHistory[a].getAmount()));
-            }
-            //what do i even do here lol
-        }
+    }
+    modifier sameasHighest(uint256 bid){
+        require(bid ==  bidHistory[bidHistory.length-1].price);
+        _;
     }
     function latestB() public view returns (uint256 price)
     {
         return currentprice;
     }
+    function ownerBoi() public view returns(address){
+        return owner;
+    }
     function latestBid() public returns(string memory){
         emit latest(currentprice);
         return "";
     }
-    modifier onlyHolder() {
-        require(msg.sender == holder, "Not holder");
+ 
+    modifier onlyHighestBuilder(){
+        require(msg.sender ==  bidHistory[bidHistory.length-1].addr);
         _;
     }
     modifier zeroBid(uint256 bid)
