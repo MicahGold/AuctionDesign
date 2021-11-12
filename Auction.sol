@@ -2,6 +2,7 @@
 
 pragma solidity >=0.8.9;
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+
 //I really dont want to test this lmao im too tired
 contract Auction{
     
@@ -11,6 +12,7 @@ contract Auction{
     uint startblock;
     uint auctionEnd;
     uint256 tokenid;
+    bool forced;
     IERC721 public nft;
     uint public nftId;
     struct Bid {
@@ -27,6 +29,7 @@ contract Auction{
         startblock = block.number;
         auctionEnd = startblock + 36000;
         currentprice = 0;
+        forced = false;
     }
     modifier descCheck(string memory desc)
     {
@@ -51,20 +54,26 @@ contract Auction{
     }
     function forceEndAuction() public{
         auctionEnd = block.number;
+        forced= true;
     }
     event latest(address _address,uint256 price);
-    function updateBiddingPrice(uint256 bid) public higherBid(bid){
+    function updateBiddingPrice() public payable higherBid(msg.value){
         require(!aucEnding(),"auction is already over");
-        require(bid<msg.sender.balance,"balance too low ur broke lol");
+        require(msg.value<msg.sender.balance,"balance too low ur broke lol");
         auctionEnd += 0;
-        currentprice = bid;
-        bidHistory.push(Bid(msg.sender,bid));
+        currentprice = msg.value;
+        bidHistory.push(Bid(msg.sender,msg.value));
         emit bidUpdated(currentprice, currentprice, bidHistory);
     }
     function endAuction() payable public onlyOwner{
         require(aucEnding(),"auction hasn't ended");
+        if(!forced){
         nft.safeTransferFrom(owner, bidHistory[bidHistory.length-1].addr,tokenid);
-        owner.transfer(msg.value); 
+        owner.transfer(bidHistory[bidHistory.length-1].price); 
+        }
+        else{
+            
+        }
     }
     function latestBid() public returns(string memory){
         emit latest(bidHistory[bidHistory.length-1].addr,bidHistory[bidHistory.length-1].price);
