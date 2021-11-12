@@ -52,7 +52,7 @@ contract Auction{
     }
     function forceEndAuction() public{
         auctionEnd = block.number;
-        forced= true;
+        //forced= true;
     }
     event latest(uint256 price);
     function updateBiddingPrice(Sender sender) public payable higherBid(sender.getAmount()) zeroBid(sender.getAmount()){
