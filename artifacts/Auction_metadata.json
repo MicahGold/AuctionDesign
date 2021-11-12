@@ -44,7 +44,7 @@
 					{
 						"components": [
 							{
-								"internalType": "address",
+								"internalType": "address payable",
 								"name": "addr",
 								"type": "address"
 							},
@@ -226,11 +226,11 @@
 			]
 		},
 		"Auction.sol": {
-			"keccak256": "0xb9b0b509d93429c7054403178e766d3d853aead743bc9f47be9a0c8aa4f923da",
+			"keccak256": "0x416009eb12c28747cca85fd02193ac9ef3086de8ce25446aa874b4531b5c616d",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://6495e6125c80b42aa97d21b6b33c9de647e0ca73c47468bc62db1e1e195286fd",
-				"dweb:/ipfs/QmWeH7HoiyjVeFGc2RqPW3FEHkhuyqDL8x8vymmSxtrqd7"
+				"bzz-raw://e5aab1b64c0c61444235f26e198ba9734097408f7ff71a3ccef7dc611a5616a2",
+				"dweb:/ipfs/QmYEhS8r3XkN4W52nq8KekRYQU2pmCwun2M9iZqYXmhbQ4"
 			]
 		}
 	},

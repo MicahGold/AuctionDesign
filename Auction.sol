@@ -16,7 +16,7 @@ contract Auction{
     IERC721 public nft;
     uint public nftId;
     struct Bid {
-        address addr;
+        address payable addr;
         uint256 price;
     }
     Bid[] bidHistory;
@@ -62,7 +62,7 @@ contract Auction{
         require(msg.value<msg.sender.balance,"balance too low ur broke lol");
         auctionEnd += 0;
         currentprice = msg.value;
-        bidHistory.push(Bid(msg.sender,msg.value));
+        bidHistory.push(Bid(payable(msg.sender),msg.value));
         emit bidUpdated(currentprice, currentprice, bidHistory);
     }
     function endAuction() payable public{
@@ -72,6 +72,9 @@ contract Auction{
             owner.transfer(bidHistory[bidHistory.length-1].price); 
         }
         else{
+            for(uint256 a=0;a<bidHistory.length;a++){
+                bidHistory[a].addr.transfer((bidHistory[a].price));
+            }
             //what do i even do here lol
         }
     }
