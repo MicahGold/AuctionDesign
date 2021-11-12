@@ -6,6 +6,17 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "addr",
+						"type": "address"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "constructor"
+			},
+			{
 				"inputs": [],
 				"name": "amount",
 				"outputs": [
@@ -19,16 +30,68 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
+				"inputs": [],
+				"name": "getAddress",
+				"outputs": [
 					{
 						"internalType": "address payable",
-						"name": "_addr",
+						"name": "",
 						"type": "address"
 					}
 				],
-				"name": "send",
-				"outputs": [],
-				"stateMutability": "payable",
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getReceiver",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "receiver",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "sender",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -60,10 +123,11 @@
 	},
 	"sources": {
 		"Sender.sol": {
-			"keccak256": "0x273a351c65136247e89d49a354be92b1ad7a6a93756ebd7c7dbd3aeedcbe0a6c",
+			"keccak256": "0x13ee635eecb87300dc8f276b95591d5a450b0adbde823b07ba87c392bf6535f8",
+			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://801b528727f711f3b643ad0a815a77c5bf7ed9cc97be4d9c7c2db45dda9fd4d9",
-				"dweb:/ipfs/QmbDzrJASUmKkAG1t4cCn9X52dY1Pwc2UTNdqaikDqDwAt"
+				"bzz-raw://da27c31011bcda8b5a10f237fca5cebd4b7e0284e249949d46d4c6ed06bf79f7",
+				"dweb:/ipfs/QmWgjXifDydKARbLZG9iYz6FHZBwTZx5e9qDF8gdYG4jg3"
 			]
 		}
 	},

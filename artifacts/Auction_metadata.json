@@ -47,22 +47,10 @@
 						"type": "uint256"
 					},
 					{
-						"components": [
-							{
-								"internalType": "address payable",
-								"name": "addr",
-								"type": "address"
-							},
-							{
-								"internalType": "uint256",
-								"name": "price",
-								"type": "uint256"
-							}
-						],
 						"indexed": false,
-						"internalType": "struct Auction.Bid[]",
+						"internalType": "contract Sender[]",
 						"name": "history",
-						"type": "tuple[]"
+						"type": "address[]"
 					}
 				],
 				"name": "bidUpdated",
@@ -187,7 +175,13 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "contract Sender",
+						"name": "sender",
+						"type": "address"
+					}
+				],
 				"name": "updateBiddingPrice",
 				"outputs": [],
 				"stateMutability": "payable",
@@ -238,11 +232,19 @@
 			]
 		},
 		"Auction.sol": {
-			"keccak256": "0x511e70aeace989d533775e976fa60e984a86dffde9b4312d11c8965e556421d0",
+			"keccak256": "0xca6da2199a105732dccd1bb249aff2059335fb33f656606fb9240475c6fde50e",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://319c651319c106466b9c48232f8e7ce065932995ebd7866260b46f0af3aec29b",
-				"dweb:/ipfs/QmQ2tAtaQoRTRxtk58Ngs1HCzV4J8hpW4iH6GxyiCUoJK2"
+				"bzz-raw://e9bc04aada86c8fdc8a9c7f77276009329feeb9429070911b92300ac1afaabe8",
+				"dweb:/ipfs/QmeyJQQRecoRWqHZ5uMGBu2b71Fqniy4Cyv91rePcouy4a"
+			]
+		},
+		"Sender.sol": {
+			"keccak256": "0x13ee635eecb87300dc8f276b95591d5a450b0adbde823b07ba87c392bf6535f8",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://da27c31011bcda8b5a10f237fca5cebd4b7e0284e249949d46d4c6ed06bf79f7",
+				"dweb:/ipfs/QmWgjXifDydKARbLZG9iYz6FHZBwTZx5e9qDF8gdYG4jg3"
 			]
 		}
 	},

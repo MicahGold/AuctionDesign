@@ -2,11 +2,12 @@
 
 pragma solidity >=0.8.9;
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
-
+import "Sender.sol";
 //I really dont want to test this lmao im too tired
 contract Auction{
     
     address payable owner;
+    address payable holder =payable( address(0xdD870fA1b7C4700F2BD7f44238821C26f7392148));
     uint256 currentprice;
     string description;
     uint startblock;
@@ -15,12 +16,9 @@ contract Auction{
     bool forced;
     IERC721 public nft;
     uint public nftId;
-    struct Bid {
-        address payable addr;
-        uint256 price;
-    }
-    Bid[] bidHistory;
-    event bidUpdated(uint256 price, uint auctionEnd,Bid[] history);
+
+    Sender[] bidHistory;
+    event bidUpdated(uint256 price, uint auctionEnd,Sender[] history);
     constructor(address _nftaddress, uint _nftId, uint256 startingprice, string memory _desc) descCheck(_desc) {
         nft = IERC721(_nftaddress);
         nftId = _nftId;
@@ -57,23 +55,22 @@ contract Auction{
         forced= true;
     }
     event latest(uint256 price);
-    function updateBiddingPrice() public payable higherBid(msg.value) zeroBid(msg.value){
+    function updateBiddingPrice(Sender sender) public payable higherBid(sender.getAmount()) zeroBid(sender.getAmount()){
         require(!aucEnding(),"auction is already over");
-        require(msg.value<msg.sender.balance,"balance too low ur broke lol");
         auctionEnd += 0;
-        currentprice = msg.value;
-        bidHistory.push(Bid(payable(msg.sender),msg.value));
+        currentprice = sender.getAmount();
+        bidHistory.push(sender);
         emit bidUpdated(currentprice, currentprice, bidHistory);
     }
-    function endAuction() payable public{
+    function endAuction() payable public onlyHolder(){ 
         require(aucEnding(),"auction hasn't ended");
         if(!forced){
-            nft.safeTransferFrom(owner, bidHistory[bidHistory.length-1].addr,tokenid);
+            nft.safeTransferFrom(owner, bidHistory[bidHistory.length-1].getAddress(),tokenid);
             owner.transfer(currentprice); 
         }
         else{
             for(uint256 a=0;a<bidHistory.length;a++){
-                bidHistory[a].addr.transfer((bidHistory[a].price));
+                bidHistory[a].getAddress().transfer((bidHistory[a].getAmount()));
             }
             //what do i even do here lol
         }
@@ -86,8 +83,8 @@ contract Auction{
         emit latest(currentprice);
         return "";
     }
-    modifier onlyOwner() {
-        require(msg.sender == owner, "Not owner");
+    modifier onlyHolder() {
+        require(msg.sender == holder, "Not holder");
         _;
     }
     modifier zeroBid(uint256 bid)
