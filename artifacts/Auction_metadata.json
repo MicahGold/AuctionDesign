@@ -18,6 +18,11 @@
 						"type": "uint256"
 					},
 					{
+						"internalType": "uint256",
+						"name": "startingprice",
+						"type": "uint256"
+					},
+					{
 						"internalType": "string",
 						"name": "_desc",
 						"type": "string"
@@ -68,12 +73,6 @@
 				"inputs": [
 					{
 						"indexed": false,
-						"internalType": "address",
-						"name": "_address",
-						"type": "address"
-					},
-					{
-						"indexed": false,
 						"internalType": "uint256",
 						"name": "price",
 						"type": "uint256"
@@ -120,6 +119,19 @@
 				"name": "forceEndAuction",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "latestB",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -226,11 +238,11 @@
 			]
 		},
 		"Auction.sol": {
-			"keccak256": "0x416009eb12c28747cca85fd02193ac9ef3086de8ce25446aa874b4531b5c616d",
+			"keccak256": "0x511e70aeace989d533775e976fa60e984a86dffde9b4312d11c8965e556421d0",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://e5aab1b64c0c61444235f26e198ba9734097408f7ff71a3ccef7dc611a5616a2",
-				"dweb:/ipfs/QmYEhS8r3XkN4W52nq8KekRYQU2pmCwun2M9iZqYXmhbQ4"
+				"bzz-raw://319c651319c106466b9c48232f8e7ce065932995ebd7866260b46f0af3aec29b",
+				"dweb:/ipfs/QmQ2tAtaQoRTRxtk58Ngs1HCzV4J8hpW4iH6GxyiCUoJK2"
 			]
 		}
 	},

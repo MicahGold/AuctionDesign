@@ -1,0 +1,71 @@
+{
+	"compiler": {
+		"version": "0.8.9+commit.e5eed63a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "amount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "_addr",
+						"type": "address"
+					}
+				],
+				"name": "send",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Sender.sol": "Sender"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Sender.sol": {
+			"keccak256": "0x273a351c65136247e89d49a354be92b1ad7a6a93756ebd7c7dbd3aeedcbe0a6c",
+			"urls": [
+				"bzz-raw://801b528727f711f3b643ad0a815a77c5bf7ed9cc97be4d9c7c2db45dda9fd4d9",
+				"dweb:/ipfs/QmbDzrJASUmKkAG1t4cCn9X52dY1Pwc2UTNdqaikDqDwAt"
+			]
+		}
+	},
+	"version": 1
+}

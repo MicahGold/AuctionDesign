@@ -21,14 +21,14 @@ contract Auction{
     }
     Bid[] bidHistory;
     event bidUpdated(uint256 price, uint auctionEnd,Bid[] history);
-    constructor(address _nftaddress, uint _nftId, string memory _desc) descCheck(_desc){
+    constructor(address _nftaddress, uint _nftId, uint256 startingprice, string memory _desc) descCheck(_desc) {
         nft = IERC721(_nftaddress);
         nftId = _nftId;
         description = _desc;
         owner = payable (msg.sender);
         startblock = block.number;
         auctionEnd = startblock + 36000;
-        currentprice = 0;
+        currentprice = startingprice;
         forced = false;
     }
     modifier descCheck(string memory desc)
@@ -56,8 +56,8 @@ contract Auction{
         auctionEnd = block.number;
         forced= true;
     }
-    event latest(address _address,uint256 price);
-    function updateBiddingPrice() public payable higherBid(msg.value){
+    event latest(uint256 price);
+    function updateBiddingPrice() public payable higherBid(msg.value) zeroBid(msg.value){
         require(!aucEnding(),"auction is already over");
         require(msg.value<msg.sender.balance,"balance too low ur broke lol");
         auctionEnd += 0;
@@ -69,7 +69,7 @@ contract Auction{
         require(aucEnding(),"auction hasn't ended");
         if(!forced){
             nft.safeTransferFrom(owner, bidHistory[bidHistory.length-1].addr,tokenid);
-            owner.transfer(bidHistory[bidHistory.length-1].price); 
+            owner.transfer(currentprice); 
         }
         else{
             for(uint256 a=0;a<bidHistory.length;a++){
@@ -78,12 +78,21 @@ contract Auction{
             //what do i even do here lol
         }
     }
+    function latestB() public view returns (uint256 price)
+    {
+        return currentprice;
+    }
     function latestBid() public returns(string memory){
-        emit latest(bidHistory[bidHistory.length-1].addr,bidHistory[bidHistory.length-1].price);
+        emit latest(currentprice);
         return "";
     }
     modifier onlyOwner() {
         require(msg.sender == owner, "Not owner");
+        _;
+    }
+    modifier zeroBid(uint256 bid)
+    {
+        require(bid!=0);
         _;
     }
     modifier higherBid(uint256 bid){
