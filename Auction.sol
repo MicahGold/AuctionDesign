@@ -66,7 +66,7 @@ contract Auction{
         bidHistory.push(Bid(payable(msg.sender),bid));
     }
     //prompt highest bidder to send money to the person if it wasnt force ended
-    function endAuction(Sender sendy) payable public onlyHighestBuilder() sameasHighest(sendy.amount()) { 
+    function endAuction(Sender sendy) payable public onlyHighestBuilder() { 
         require(aucEnding(),"auction hasn't ended");
         if(!forced){
             nft.safeTransferFrom(owner, msg.sender,tokenid);
@@ -83,6 +83,11 @@ contract Auction{
     }
     function ownerBoi() public view returns(address){
         return owner;
+    }
+    modifier toOwner(Sender s)
+    {
+        require(s.receiver() == owner);
+        _;
     }
     function latestBid() public returns(string memory){
         emit latest(currentprice);

@@ -130,11 +130,11 @@
 	},
 	"sources": {
 		"Sender.sol": {
-			"keccak256": "0x9a569c99368540f52a39474a96a20e2963ea6d62850958723a92ceb0ab71698e",
+			"keccak256": "0x6e9a49734034017ad5121454bd377e0b32245310f38bd87e3f9b8dea928855c9",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://32f63b39d98e5a1cd0be7aff5780e983057f02be785d35881d9d77f97a300aaa",
-				"dweb:/ipfs/QmV8fWZjSzFCBA642YZxCq9GkZbZ7Sx1hxTRxcHEHZ65n7"
+				"bzz-raw://9179cf3ffa4acaf6497483143feef7fad3e9ca4da78ad30e1522a15773bd55a9",
+				"dweb:/ipfs/QmYaZTq6uD3oezk6offUW6gCozs7ayjh4LECYJBHcUajDS"
 			]
 		}
 	},

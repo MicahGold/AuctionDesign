@@ -7,12 +7,11 @@ contract Sender {
     address payable public receiver;
     constructor( address payable addr) payable{
         amount = msg.value;
-        
         receiver = addr;
         sender = payable(msg.sender);
     }
     function execute() public payable{
-        receiver.transfer(msg.value);
+        receiver.transfer(amount);
     }
     function getReceiver() public view returns(address payable){
         return receiver;

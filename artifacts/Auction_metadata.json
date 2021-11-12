@@ -251,19 +251,19 @@
 			]
 		},
 		"Auction.sol": {
-			"keccak256": "0x5d1c5c28b7f2202af2968199d7722893d293e57ca0452236b2fd3e4d19e5cfe6",
+			"keccak256": "0x427e66733a78048749e04bec35a77a62c09a262dde290776275e52bf2940d042",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://5b62b616e1771c6b46a6d88ac5bc9e19d2bc3fda474006d82e87f7dc4cfdb46d",
-				"dweb:/ipfs/QmcZg9nV57hJnj2GRaQFMigpv3GfBVYChQLQ1B4bz2LsyR"
+				"bzz-raw://adb8927a9bf3e67ec93f5123372c1f3f329d883d5238b468c0a49d797e714310",
+				"dweb:/ipfs/QmVoSJdDjztH8iDAD99HS9hRxGzLcFgh8Xh53kd5cYRha1"
 			]
 		},
 		"Sender.sol": {
-			"keccak256": "0x9a569c99368540f52a39474a96a20e2963ea6d62850958723a92ceb0ab71698e",
+			"keccak256": "0x6e9a49734034017ad5121454bd377e0b32245310f38bd87e3f9b8dea928855c9",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://32f63b39d98e5a1cd0be7aff5780e983057f02be785d35881d9d77f97a300aaa",
-				"dweb:/ipfs/QmV8fWZjSzFCBA642YZxCq9GkZbZ7Sx1hxTRxcHEHZ65n7"
+				"bzz-raw://9179cf3ffa4acaf6497483143feef7fad3e9ca4da78ad30e1522a15773bd55a9",
+				"dweb:/ipfs/QmYaZTq6uD3oezk6offUW6gCozs7ayjh4LECYJBHcUajDS"
 			]
 		}
 	},
