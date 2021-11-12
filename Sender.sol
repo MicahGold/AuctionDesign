@@ -16,6 +16,9 @@ contract Sender {
     function getReceiver() public view returns(address payable){
         return receiver;
     }
+    function cancel() public payable{
+        sender.transfer(amount);
+    }
     function getAmount() public view returns(uint256){
         return amount;
     }

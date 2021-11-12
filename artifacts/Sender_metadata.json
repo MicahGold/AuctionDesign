@@ -31,6 +31,13 @@
 			},
 			{
 				"inputs": [],
+				"name": "cancel",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "execute",
 				"outputs": [],
 				"stateMutability": "payable",
@@ -130,11 +137,11 @@
 	},
 	"sources": {
 		"Sender.sol": {
-			"keccak256": "0x6e9a49734034017ad5121454bd377e0b32245310f38bd87e3f9b8dea928855c9",
+			"keccak256": "0x5825cf9b4c3b815e77dab3b6699f036506a807caa17b83dc413cbbf3526579aa",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://9179cf3ffa4acaf6497483143feef7fad3e9ca4da78ad30e1522a15773bd55a9",
-				"dweb:/ipfs/QmYaZTq6uD3oezk6offUW6gCozs7ayjh4LECYJBHcUajDS"
+				"bzz-raw://6013076eb3d528d8280849238cb403062f3a39608bb86c162f24882c7ab6ee3a",
+				"dweb:/ipfs/QmexeBAwVUxQWSfsv6RLiryEUvNJUwf1XiPyJAKBwPy7WL"
 			]
 		}
 	},
