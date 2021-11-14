@@ -86,10 +86,16 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "contract Sender",
+						"name": "sendy",
+						"type": "address"
+					}
+				],
 				"name": "endAuction",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -253,11 +259,11 @@
 			]
 		},
 		"Auction.sol": {
-			"keccak256": "0xf563bfe35417cf695923ba593395996e819338803eb98eb14ad540defa669922",
+			"keccak256": "0x435988942bde72e85eda6b00de5701b21a730f93562397838cb262faa9ede6a0",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://936a0b5bab0a5825c0ee5229b7e6892e95883ca86d00def911bef332f828fa8d",
-				"dweb:/ipfs/QmZdL1AGyd29fBD6vStPyLE3JoonWimix15AG66PUMAiYn"
+				"bzz-raw://500203ebb7fc1f05bf2a914fccc5d2703169afa119c37444acfea68df4bbd2c7",
+				"dweb:/ipfs/QmbbBeKz3ygDra1rfZqwy3LHCLWC2rXFukWJTUXoCzKTCY"
 			]
 		},
 		"Sender.sol": {

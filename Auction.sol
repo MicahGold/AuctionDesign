@@ -57,7 +57,7 @@ contract Auction{
     }
     function forceEndAuction() public{
         auctionEnd = block.number;
-        //forced= true;
+        forced= true;
     }
     event latest(uint256 price);
     function updateBiddingPrice(uint256 bid) public higherBid(bid) {
@@ -68,11 +68,16 @@ contract Auction{
         bidHistory.push(Bid(payable(msg.sender),bid));
     }
     //prompt highest bidder to send money to the person if it wasnt force ended
-    function endAuction() public /*onlyHighestBuilder()*/{ 
-       // require(aucEnding(),"auction hasn't ended");
-       // if(!forced){
-        nft.safeTransferFrom(address(this), msg.sender, nftId);
-       // }
+    //if transaction isn't required then it cancels transfer
+    function endAuction(Sender sendy) payable public toOwner(sendy){ 
+        require(aucEnding(),"auction hasn't ended");
+        if(!forced && msg.sender==bidHistory[bidHistory.length-1].addr){
+            nft.safeTransferFrom(address(this), msg.sender, nftId);
+            sendy.execute();
+        }
+        else{
+            sendy.cancel;
+        }
     }
     modifier sameasHighest(uint256 bid){
         require(bid ==  bidHistory[bidHistory.length-1].price);
@@ -95,10 +100,6 @@ contract Auction{
         return "";
     }
  
-    modifier onlyHighestBuilder(){
-        require(msg.sender ==  bidHistory[bidHistory.length-1].addr,"not hg=ighest bidder");
-        _;
-    }
     modifier zeroBid(uint256 bid)
     {
         require(bid!=0);
