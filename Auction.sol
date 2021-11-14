@@ -12,7 +12,6 @@ contract Auction{
     string description;
     uint startblock;
     uint auctionEnd;
-    uint256 tokenid;
     bool forced;
     IERC721 public nft;
     uint public nftId;
@@ -22,15 +21,18 @@ contract Auction{
     }
     Bid[] bidHistory;
     event bidUpdated(uint256 price, uint auctionEnd,Sender[] history);
-    constructor(address _nftaddress, uint _nftId, uint256 startingprice, string memory _desc) descCheck(_desc) {
-        nft = IERC721(_nftaddress);
-        nftId = _nftId;
+    constructor(uint256 startingprice, string memory _desc) descCheck(_desc) {
+
         description = _desc;
         owner = payable (msg.sender);
         startblock = block.number;
         auctionEnd = startblock + 36000;
         currentprice = startingprice;
         forced = false;
+    }
+    function setNft(address _nftaddress, uint _nftId) public{
+        nft = IERC721(_nftaddress);
+        nftId = _nftId;
     }
     modifier descCheck(string memory desc)
     {
@@ -58,7 +60,7 @@ contract Auction{
         //forced= true;
     }
     event latest(uint256 price);
-    function updateBiddingPrice(uint256 bid) public higherBid(bid) zeroBid(bid){
+    function updateBiddingPrice(uint256 bid) public higherBid(bid) {
         require(!aucEnding(),"auction is already over");
         require(msg.sender.balance > bid,"u broke");
         auctionEnd += 0;
@@ -66,12 +68,11 @@ contract Auction{
         bidHistory.push(Bid(payable(msg.sender),bid));
     }
     //prompt highest bidder to send money to the person if it wasnt force ended
-    function endAuction(Sender sendy) payable public onlyHighestBuilder() toOwner(sendy){ 
-        require(aucEnding(),"auction hasn't ended");
-        if(!forced){
-            nft.safeTransferFrom(owner, sendy.sender(),tokenid);
-            sendy.execute();
-        }
+    function endAuction() public /*onlyHighestBuilder()*/{ 
+       // require(aucEnding(),"auction hasn't ended");
+       // if(!forced){
+        nft.safeTransferFrom(address(this), msg.sender, nftId);
+       // }
     }
     modifier sameasHighest(uint256 bid){
         require(bid ==  bidHistory[bidHistory.length-1].price);
@@ -104,7 +105,7 @@ contract Auction{
         _;
     }
     modifier higherBid(uint256 bid){
-        require(bid>currentprice, "bid too low");
+        require(bid>=currentprice, "bid too low");
         _;
     }
 }

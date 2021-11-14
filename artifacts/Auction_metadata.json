@@ -1,22 +1,12 @@
 {
 	"compiler": {
-		"version": "0.8.9+commit.e5eed63a"
+		"version": "0.8.10+commit.fc410830"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
 			{
 				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_nftaddress",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_nftId",
-						"type": "uint256"
-					},
 					{
 						"internalType": "uint256",
 						"name": "startingprice",
@@ -96,16 +86,10 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "contract Sender",
-						"name": "sendy",
-						"type": "address"
-					}
-				],
+				"inputs": [],
 				"name": "endAuction",
 				"outputs": [],
-				"stateMutability": "payable",
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -181,6 +165,24 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_nftaddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_nftId",
+						"type": "uint256"
+					}
+				],
+				"name": "setNft",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "timeLeft",
 				"outputs": [
@@ -251,11 +253,11 @@
 			]
 		},
 		"Auction.sol": {
-			"keccak256": "0xf71a10f233a4ecf0ab13db0f93db3681e4d849d4d4dad7eed4873ed173244a3e",
+			"keccak256": "0xf563bfe35417cf695923ba593395996e819338803eb98eb14ad540defa669922",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://538e9f5127193bb9ae226f1016b63f4f8acd9cdbbbb86e48ef8000402a6ad886",
-				"dweb:/ipfs/QmRiczaeS4ESFEhwaDfxi1CksYvWrSZGnuRdDvyEwzedZu"
+				"bzz-raw://936a0b5bab0a5825c0ee5229b7e6892e95883ca86d00def911bef332f828fa8d",
+				"dweb:/ipfs/QmZdL1AGyd29fBD6vStPyLE3JoonWimix15AG66PUMAiYn"
 			]
 		},
 		"Sender.sol": {
