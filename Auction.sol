@@ -63,7 +63,7 @@ contract Auction{
     function updateBiddingPrice(uint256 bid) public higherBid(bid) {
         require(!aucEnding(),"auction is already over");
         require(msg.sender.balance > bid,"u broke");
-        auctionEnd += 0;
+        auctionEnd += 69;
         currentprice = bid;
         bidHistory.push(Bid(payable(msg.sender),bid));
     }
