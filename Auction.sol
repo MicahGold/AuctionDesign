@@ -10,8 +10,8 @@ contract Auction{
  
     uint256 currentprice;
     string description;
-    uint startblock;
-    uint auctionEnd;
+    int256 startblock;
+    int256 auctionEnd;
     bool forced;
     IERC721 public nft;
     uint public nftId;
@@ -25,7 +25,7 @@ contract Auction{
 
         description = _desc;
         owner = payable (msg.sender);
-        startblock = block.number;
+        startblock = int(block.number);
         auctionEnd = startblock + 36000;
         currentprice = startingprice;
         forced = false;
@@ -49,14 +49,14 @@ contract Auction{
       return count;
     }
     function aucEnding() view public returns (bool){
-        return (auctionEnd <= block.number);
+        return (auctionEnd <= int(block.number));
 
     }
-    function timeLeft() view public returns(uint256){
-       return(auctionEnd- block.number);
+    function timeLeft() view public returns(int256){
+       return(auctionEnd- int256(block.number));
     }
     function forceEndAuction() public{
-        auctionEnd = block.number;
+        auctionEnd = int256(block.number);
         forced= true;
     }
     event latest(uint256 price);
