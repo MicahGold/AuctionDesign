@@ -9,7 +9,7 @@
 				"inputs": [
 					{
 						"internalType": "int256",
-						"name": "timeinseconds",
+						"name": "timeindays",
 						"type": "int256"
 					},
 					{
@@ -264,11 +264,11 @@
 			]
 		},
 		"Auction.sol": {
-			"keccak256": "0x2dacb84d9c0a17ae3eb5b83e470302ebfb238987a5e0003564c7b974b6ad7488",
+			"keccak256": "0x6343b36e0df217fd393830ca25ea5db9d60e57b5df23b314b3cd61b5d7bd38d3",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://7cd3492167bd4a5b8f377a6cd4e95757ddf2b8cb7234f37fce3fb79d83481f6f",
-				"dweb:/ipfs/Qmf2K4ZXwJbQorr6Z8sy9U1WhKse6phDSN35hRFC5HNZdK"
+				"bzz-raw://36bf2721a5b5d356a6a0890318311a0411f27769194a5537330caabbfccc9704",
+				"dweb:/ipfs/QmQMX1cyJ41gQqUexLVcSiPBXPfVEmU8nAvRmTDDXmyPcY"
 			]
 		},
 		"Sender.sol": {

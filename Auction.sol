@@ -10,7 +10,7 @@ contract Auction{
  
     uint256 currentprice;
     string description;
-    int256 startblock;
+    int256 start;
     int256 auctionEnd;
     bool forced;
     IERC721 public nft;
@@ -21,12 +21,12 @@ contract Auction{
     }
     Bid[] bidHistory;
     event bidUpdated(uint256 price, uint auctionEnd,Sender[] history);
-    constructor(int256 timeinseconds,uint256 startingprice, string memory _desc) descCheck(_desc) {
+    constructor(int256 timeindays,uint256 startingprice, string memory _desc) descCheck(_desc) {
         
         description = _desc;
         owner = payable (msg.sender);
-        startblock = int(block.number);
-        auctionEnd = startblock + timeinseconds/12;
+        start = int(block.timestamp);
+        auctionEnd = start + timeindays;
         currentprice = startingprice;
         forced = false;
     }
@@ -63,7 +63,7 @@ contract Auction{
     function updateBiddingPrice(uint256 bid) public higherBid(bid) {
         require(!aucEnding(),"auction is already over");
         require(msg.sender.balance > bid,"u broke");
-        auctionEnd += 6 ;//6~= 69/12 
+        auctionEnd += 6 seconds;
         currentprice = bid;
         bidHistory.push(Bid(payable(msg.sender),bid));
     }
