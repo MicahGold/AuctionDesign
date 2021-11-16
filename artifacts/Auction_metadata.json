@@ -8,6 +8,11 @@
 			{
 				"inputs": [
 					{
+						"internalType": "int256",
+						"name": "timeinseconds",
+						"type": "int256"
+					},
+					{
 						"internalType": "uint256",
 						"name": "startingprice",
 						"type": "uint256"
@@ -259,11 +264,11 @@
 			]
 		},
 		"Auction.sol": {
-			"keccak256": "0x3613615271042754524acba7723a93225d00efba342d20feb9e2cfa019076151",
+			"keccak256": "0x2dacb84d9c0a17ae3eb5b83e470302ebfb238987a5e0003564c7b974b6ad7488",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://107a2d3a4818d28f0fd500f6816b075919069f6b0a6f4239e7f25d096e7a6491",
-				"dweb:/ipfs/QmeS9drJSZ4ZdV8vaEPtX4bgP4xYrjxsF4cuuV8fFANAes"
+				"bzz-raw://7cd3492167bd4a5b8f377a6cd4e95757ddf2b8cb7234f37fce3fb79d83481f6f",
+				"dweb:/ipfs/Qmf2K4ZXwJbQorr6Z8sy9U1WhKse6phDSN35hRFC5HNZdK"
 			]
 		},
 		"Sender.sol": {
